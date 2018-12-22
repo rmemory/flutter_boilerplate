@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import './products.dart';
 
 class ProductManager extends StatefulWidget {
+  final String startingProduct;
+
+  ProductManager(this.startingProduct);
+
   @override
   State<StatefulWidget> createState() {
     return _ProductManagerState();
@@ -11,9 +15,13 @@ class ProductManager extends StatefulWidget {
 
 // This class contains the state of the products list and the Button to add a product
 class _ProductManagerState extends State<ProductManager> {
-  List<String> _products = [
-    'Food tester'
-  ];
+  List<String> _products = [];
+
+  void initState() {
+    super.initState();
+    _products.add(widget.startingProduct);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(

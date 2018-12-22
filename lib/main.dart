@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar( // provides title bar
           title: Text("Hello World"),
         ),
-        body: ProductManager(),
+        body: ProductManager("Initial food string"),
       ),
     ); // usage of parenthesis is same as using "new"
   }
