@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+import './product_manager.dart'; 
+
+/* Docs found here: 
+ * https://flutter.io/docs/development/ui/widgets
+ */
+
+// Main entry point
 void main() {
   runApp(MyApp());
 }
 
-// root level widget for the application
 class MyApp extends StatelessWidget {
   /* 
    * Flutter always calls the build method on widget classes to render the 
@@ -29,12 +35,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar( // provides title bar
           title: Text("Hello World"),
         ),
-        body: Card(
-          child: Column(children: <Widget>[
-            Image.asset("assets/food.jpg"), // see pubspec.yaml
-            Text("Food is good")
-          ],),
-        ),
+        body: ProductManager(),
       ),
     ); // usage of parenthesis is same as using "new"
   }
