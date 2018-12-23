@@ -31,11 +31,16 @@ class MyApp extends StatelessWidget {
      * used in every Flutter application.
      */
     return MaterialApp( // this container requires a widget tree as follows:
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primarySwatch: Colors.deepOrange,
+        accentColor: Colors.deepPurple,
+      ),
       home: Scaffold( // by default provides a white background
         appBar: AppBar( // provides title bar
-          title: Text("Hello World"),
+          title: Text("Food products"),
         ),
-        body: ProductManager("Initial food string"),
+        body: ProductManager(startingProduct: "Initial food string"),
       ),
     ); // usage of parenthesis is same as using "new"
   }

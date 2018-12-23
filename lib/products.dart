@@ -4,7 +4,7 @@ class Products extends StatelessWidget {
   final List<String> products;
 
   // Constructor
-  Products(this.products);
+  Products([this.products = const []]);
 
   @override
   Widget build(BuildContext context) {
