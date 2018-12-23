@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 import './products.dart';
+import './product_control.dart';
 
 class ProductManager extends StatefulWidget {
   final String startingProduct;
 
   // Constructor
-  ProductManager({this.startingProduct = "Default food"});
+  ProductManager({this.startingProduct = "Sweets Tester"});
 
   @override
   State<StatefulWidget> createState() {
@@ -38,28 +39,22 @@ class _ProductManagerState extends State<ProductManager> {
     super.didUpdateWidget(oldWidget);
   }
 
+  void _addProduct(String product) {
+    setState(() {
+      _products.add(product);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        Container( // Container for button
-          margin: 
-            EdgeInsets.all(10.0), // add a 10 pixel boundary around button
-          child: 
-            RaisedButton( // The button itself
-              color: Theme.of(context).primaryColor,
-              onPressed: () {
-                // setState will not cause didUpdateWidget to be called
-                setState(() {
-                  _products.add('Added food test');
-                });
-              },
-              child: Text("Add product"),
-            ),
-        ),
-        
-        // The list of products
-        Products(_products),
-      ]);
+        children: [
+          Container(
+            margin: EdgeInsets.all(10.0),
+            child: ProductControl(_addProduct),
+          ),
+          Products(_products)
+        ],
+      );
     }
 }
